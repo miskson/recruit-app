@@ -12,3 +12,11 @@ export async function POST(req: Request) {
     return NextResponse.json({ message: "Error", error }, { status: 500 });
   }
 }
+
+export async function GET() {
+  try {
+    return NextResponse.json(await Profession.find().exec());
+  } catch (error) {
+    return NextResponse.json({ message: "Error", error }, { status: 500 });
+  }
+}
