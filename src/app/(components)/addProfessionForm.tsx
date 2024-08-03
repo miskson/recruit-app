@@ -56,12 +56,6 @@ export default function AddProfessionForm() {
         <br />
         <label htmlFor="description">
           Profession description
-          {/* <input
-            type="text-area"
-            name="description"
-            onChange={handleChange}
-            value={formData.description}
-          /> */}
           <textarea
             rows={10}
             cols={45}

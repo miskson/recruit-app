@@ -2,7 +2,6 @@ import Profession from "@/app/(models)/Profession";
 import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
-  console.log("POST FIRED");
   try {
     const body = await req.json();
     const professionData = body.formData;
