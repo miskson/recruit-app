@@ -12,3 +12,14 @@ export async function GET(
     return NextResponse.json({ message: "Error", error }, { status: 500 });
   }
 }
+
+export async function DELETE(
+  req: NextRequest,
+  { params }: { params: { id: string } }
+) {
+  try {
+    return NextResponse.json(await Profession.deleteOne(new ObjectId(params.id)));
+  } catch (error) {
+    return NextResponse.json({ message: "Error", error }, { status: 500 });
+  }
+}

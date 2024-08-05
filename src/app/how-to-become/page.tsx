@@ -13,10 +13,23 @@ interface IProffesion {
 export default function page() {
   const [professions, setProfessions] = useState([] as IProffesion[] | []);
 
+  const fetchProfessions = async () => {
+    const responce = await fetch(`api/Professions`, {
+      method: "GET",
+    });
+    const data = await responce.json();
+    setProfessions(data);
+  };
+
+  const handleDelete = async (professionId: String) => {
+    await fetch(`api/Professions/${professionId}`, {
+      method: "DELETE",
+    });
+    fetchProfessions();
+  };
+
   useEffect(() => {
-    fetch("/api/Professions")
-      .then((res) => res.json())
-      .then((json) => setProfessions(json));
+    fetchProfessions();
   }, []);
 
   return (
@@ -27,6 +40,14 @@ export default function page() {
           <div key={index}>
             <h3>{item?.title}</h3>
             <p>{item?.description}</p>
+            <button
+              onClick={() => handleDelete(item?._id)}
+              style={{ color: "red" }}
+            >
+              DELETE
+            </button>
+            <br />
+            <button>EDIT</button>
           </div>
           <br />
         </>

@@ -14,7 +14,6 @@ const professionSchema = new Schema(
   }
 );
 
-console.log("creating profession");
 const Profession =
   mongoose.models.Profession || mongoose.model("Profession", professionSchema);
 export default Profession;
