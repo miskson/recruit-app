@@ -1,9 +1,11 @@
-import React from 'react'
+import React from "react";
+import AddApplicationForm from "../(components)/addApplicationForm";
 
-export default function page() {
+export default function procedurePage() {
   return (
     <div>
-      <h1>apply page</h1>
+      <h1>Add-profession page</h1>
+      <AddApplicationForm />
     </div>
-  )
+  );
 }
